@@ -6,7 +6,7 @@ namespace TestMoodAnalyzer
     public class TestMood
     {
         [Test]
-        public void GivenInputIsString_WhenTestAnalyseMood_ShouldReturnReturnEmpty()
+        public void GivenInputIsString_WhenTestMoodAnalyze_ShouldReturnReturnEmpty()
         {
             try
             {
@@ -19,7 +19,7 @@ namespace TestMoodAnalyzer
             }
         }
         [Test]
-        public void GivenInputIsString_WhenTestAnalyseMood_ShouldReturnReturnNull()
+        public void GivenInputIsString_WhenTestMoodAnalyze_ShouldReturnReturnNull()
         {
             try
             {
@@ -28,8 +28,15 @@ namespace TestMoodAnalyzer
             }
             catch (MoodAnalyzerException ex)
             {
-                Assert.AreEqual(ex.Message, "message is Null");
+                Assert.AreEqual(ex.Message, "Message is Null");
             }
+        }
+        [Test]
+        public void GivenAnalyzeMoodClassName_ShouldReturnMoodAnalyzeObject()
+        {
+            object expected = new AnalyzeMood();
+            object obj = MoodAnalyzerFactory.CreateAnalyzeMood("MoodAnalyzerProblem.AnalyzeMood", "AnalyzeMood");
+            expected.Equals(obj);
         }
     }
 }
