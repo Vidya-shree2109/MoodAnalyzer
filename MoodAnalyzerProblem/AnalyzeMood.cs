@@ -22,6 +22,7 @@
                 if (message.Equals(""))
                 {
                     throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.EMPTY_MOOD, "message is Empty");
+
                 }
                 if (message.ToLower().Contains("sad"))
                 {
